@@ -376,7 +376,7 @@ button,input{
     align-items: center;
 }
 .about_img{
-    width:480px;
+    width:400px;
     border-radius: 0.75rem;
     justify-self: center;
 }
