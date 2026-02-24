@@ -1,21 +1,24 @@
 // ^ ======== SHOW SIDEBAR ========
-const navMenu=document.getElementById('side_bar');
-const navToggle=document.getElementById('nav_toggle');
-const navClose=document.getElementById('nav_close');
-let link=document.querySelectorAll('.nav_menu li a');
-function showSidebar(){
+const navMenu = document.getElementById('side_bar');
+const navToggle = document.getElementById('nav_toggle');
+const navClose = document.getElementById('nav_close');
+let link = document.querySelectorAll('.nav_menu li a');
+
+// تأكد أن الـ sidebar مخفي عند تحميل الصفحة
+navMenu.classList.remove('show-sidebar');
+
+function showSidebar() {
     navMenu.classList.add('show-sidebar');
 }
-function hiddenSidebar(){
+
+function hiddenSidebar() {
     navMenu.classList.remove('show-sidebar');
 }
-navToggle.addEventListener('click',showSidebar);
-navClose.addEventListener('click',hiddenSidebar);
-for(let i=0;i<link.length;i++){
-    link[i].addEventListener('click',function(){
-        navMenu.classList.remove('show-sidebar');
-    })
-}
+
+navToggle.addEventListener('click', showSidebar);
+navClose.addEventListener('click', hiddenSidebar);
+
+link.forEach(l => l.addEventListener('click', hiddenSidebar));
 // ^ ======== SKILLS TABS ========
 const tabs = document.querySelectorAll('[data-target]');
 const contents = document.querySelectorAll('[data-content]');

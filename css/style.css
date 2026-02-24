@@ -594,18 +594,19 @@ button,input{
     padding-top: 1rem;
 }
 .work_filters{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    column-gap: .75rem;
-    margin-bottom: 2rem;
+     display: flex;
+    flex-wrap: wrap;      /* يسمح للعناصر بالانتقال للسطر التالي على الشاشات الصغيرة */
+    gap: 10px;            /* مسافة بين العناصر */
+    justify-content: center; /* محاذاة وسط */
+    margin-bottom: 20px;
+    padding-inline: 10px;
 }
 .work_item{
+    padding: 8px 16px;
+    border-radius: 6px;
     cursor: pointer;
-    color: var(--skin-color);
-    padding: .25rem .75rem;
-    font-weight: var(--font-medium);
-    border-radius: .5rem;
+    background-color: var(--box-color);
+    transition: all 0.3s ease;
 }
 .work_card{
     background-color: var(--box-color);
@@ -645,11 +646,21 @@ button,input{
 }
 
 /*& ====================== Active link Work ==================== */
-.active-work{
-    background-color: var(--skin-color);
-    color: var(--title-color);
+
+.work_item:hover,
+.work_item.active-work {
+    background-color:var(--skin-color); /* لون مميز للعناصر النشطة */
+    color: #fff;
+    transform: scale(1.05);
 }
 
+/* Media Queries للشاشات الصغيرة */
+@media (max-width: 600px) {
+    .work_item {
+        flex: 1 1 45%; /* كل عنصر ياخد نص العرض تقريبا */
+        text-align: center;
+    }
+}
 /* & =================== portfolio popup  ===================*/
 .portfolio_popup{
     position:fixed;
