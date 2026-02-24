@@ -469,73 +469,123 @@ button,input{
     color: var(--skin-color);
 }
 /* & ================= SKILLS ================= */
+
+/* ================= SKILLS LAYOUT ================= */
+
 .skills_container{
-    grid-template-columns: 360px 320px;
-    column-gap: 3rem;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 3rem;
+    align-items: flex-start;
+}
+/* ================= TABS ================= */
+
+.skills_tabs{
+    background: var(--box-color);
+    padding:1.5rem;
+    border-radius:14px;
+    box-shadow:0 6px 20px rgba(0,0,0,.05);
+}
+.skills_tabs h3{
+    font-size: 16px;
+}
+.skills_tabs span{
+    font-size: 14px;
 }
 .skills_header{
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
-.skills_header:not(:last-child){
-    margin-bottom: var(--mb-2-5);
-}
-.skills_icon,.skills_arrow{
-    font-size: 1.5rem;
-    color: var(--skin-color);
-}
-.skills_icon{
-    margin-right: var(--mb-0-75);
-}
-.skills_title{
-    font-size: var(--h3-font-size);
-}
-.skills_subtitle{
-    font-size: var(--small-font-size);
-}
-.skills_arrow{
-    margin-left:auto ;
-}
-.skills_active .skills_arrow{
-    transform: rotate(-90deg);
-    transition: all .3s;
-}
-.skills [data-content]{
-    display: none;
-}
-.skills_active[data-content]{
-    display: block;
-}
-.skills_list{
-    row-gap: 1.8rem;
-}
-.skills_title{
-    display: flex;
-    justify-content: space-between;
-    font-size: var(--normal-font-size);
-    margin-bottom: var(--mb-0-5);
-}
-.skills_name{
-    font-size: var(--normal-font-size);
-    font-weight: var(--font-medium);
-}
-.skills_number i{
-    font-size: 35px;
+    display:flex;
+    align-items:center;
+    gap:.8rem;
+    cursor:pointer;
+    padding:1rem;
+    border-radius:10px;
+    transition:.3s;
 }
 
-.skills_bar,.skills_percentage{
-    height: 5px;
-    border-radius: .25rem;
+.skills_header:not(:last-child){
+    margin-bottom:1rem;
 }
-.skills_bar{
-    background-color: var(--box-color);
+
+.skills_header:hover{
+    background:rgba(0,0,0,.05);
 }
-.skills_percentage{
-    display: block;
-    background-color: var(--skin-color);
+
+.skills_icon{
+    font-size:1.3rem;
+    color:var(--skin-color);
 }
+
+/* ACTIVE TAB */
+.skills_header.skills_active{
+    background:var(--skin-color);
+    color:#fff;
+}
+
+.skills_header.skills_active .skills_icon{
+    color:#fff;
+}
+
+
+/* ================= CONTENT ================= */
+
+.skills_content{
+    width:100%;
+}
+
+.skills_group{
+    display:none;
+}
+
+.skills_group.skills_active{
+    display:block;
+}
+
+
+/* ================= SKILL CARDS ================= */
+
+.skills_list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:1.5rem;
+}
+
+/* CARD */
+
+.skills_data{
+    background:var(--box-color);   /* ✅ مش أبيض */
+    color:var(--title-color);
+    padding:1.6rem 1rem;
+    border-radius:14px;
+    text-align:center;
+    transition:.35s;
+    border:1px solid rgba(0,0,0,.05);
+    box-shadow:0 4px 15px rgba(0,0,0,.05);
+}
+
+/* ICON */
+
+.skills_data i{
+    font-size:45px;
+    margin-bottom:.6rem;
+}
+
+/* TITLE */
+
+.skills_data h4{
+    font-size:var(--normal-font-size);
+    font-weight:var(--font-medium);
+}
+
+/* HOVER EFFECT */
+
+.skills_data:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+
+
+
 /* & ================== Work section ================== */
 .work_container{
     grid-template-columns:repeat(3,330px) ;
@@ -1195,4 +1245,33 @@ textarea.input{
     .footer_links{
         justify-content: start;
     }
+}
+/* ================= RESPONSIVE ================= */
+
+@media screen and (max-width:992px){
+
+    .skills_container{
+        grid-template-columns:1fr;
+        gap:2rem;
+    }
+
+    .skills_tabs{
+        display:flex;
+        flex-wrap:wrap;
+        gap:1rem;
+        justify-content:center;
+    }
+
+    .skills_header{
+        flex:1 1 150px;
+        justify-content:center;
+    }
+}
+
+@media screen and (max-width:576px){
+
+    .skills_list{
+        grid-template-columns:repeat(2,1fr);
+    }
+
 }

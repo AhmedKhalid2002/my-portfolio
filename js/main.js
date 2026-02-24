@@ -17,20 +17,32 @@ for(let i=0;i<link.length;i++){
     })
 }
 // ^ ======== SKILLS TABS ========
-const tabs =document.querySelectorAll('[data-target]');
-const tabsContent=document.querySelectorAll('[data-content]');
-tabs.forEach(tab=>{
-    tab.addEventListener('click',()=>{
-        const target = document.querySelector(tab.dataset.target)
-    tabsContent.forEach(tabsContents=>{
-        tabsContents.classList.remove('skills_active')
+const tabs = document.querySelectorAll('[data-target]');
+const contents = document.querySelectorAll('[data-content]');
+
+tabs.forEach(tab => {
+
+    tab.addEventListener('click', () => {
+
+        const target = document.querySelector(tab.dataset.target);
+
+        /* hide all contents */
+        contents.forEach(content => {
+            content.classList.remove('skills_active');
+        });
+
+        /* show selected */
+        target.classList.add('skills_active');
+
+        /* remove active from tabs */
+        tabs.forEach(t => {
+            t.classList.remove('skills_active');
+        });
+
+        /* activate current tab */
+        tab.classList.add('skills_active');
     });
-    target.classList.add('skills_active')
-    tabs.forEach(tab=>{
-        tab.classList.remove('skills_active')
-    })
-    tab.classList.add('skills_active')
-    })
+
 });
 
 // ^ ========== MIXITUP FILTER ==========
