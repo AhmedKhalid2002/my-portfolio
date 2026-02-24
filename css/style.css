@@ -620,6 +620,7 @@ button,input{
     margin-bottom: var(--mb-1);
     height: 200px;
     width: 400px;
+    object-fit: cover;
 }
 .work_title{
     font-size: var(--normal-font-size);
